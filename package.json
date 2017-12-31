@@ -1,0 +1,35 @@
+{
+  "name": "login-service",
+  "version": "1.0.0",
+  "description": "Login",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jk-sourcecode/login-service.git"
+  },
+  "author": "Kabil Jayaraman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jk-sourcecode/login-service/issues"
+  },
+  "homepage": "https://github.com/jk-sourcecode/login-service#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "common": "git+https://github.com/jk-sourcecode/common.git",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "prettier": "^1.9.2"
+  }
+}
