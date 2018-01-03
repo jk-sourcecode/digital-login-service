@@ -36,7 +36,6 @@ module.exports = {
   ValidateUser(req, res) {
     if (isEmpty(req.body)) { res.send('Failure: Invalid input') } else {
       const query = model.loginQuery(req)
-      console.log(query)
       couchbase.ExecuteQuery(query).then((result) => {
         res.send(result)
       }).catch((err) => {
