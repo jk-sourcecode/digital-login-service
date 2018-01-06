@@ -5,8 +5,6 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
-        app = docker.build("digital_login-service")
-    }
+
 
 }
