@@ -9,6 +9,7 @@ COPY ["package.json", "/usr/src/app/"]
 COPY ["src", "/usr/src/app/src"]
 COPY ["index.js", "/usr/src/app/"]
 RUN npm install
+RUN   chmod -R a+rwx,o+t /tmp
 EXPOSE 5050
 CMD ["npm", "start"]
 
