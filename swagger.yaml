@@ -1,0 +1,107 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  description: "Simple API example"
+  version: "1.5.1"
+  title: "login-service"
+paths:
+  /login/register:
+    post:
+      description: "Singup api for new user registration"
+      produces:
+        - application/json
+      consumes:  
+         - application/x-www-form-urlencoded
+      parameters:
+        - description: "username"
+          in: formData
+          name: username
+          type: string
+          required: true         
+        - description: "password"
+          in: formData
+          name: password
+          required: true     
+          type: string    
+        - description: "firstname"
+          in: formData
+          name: firstname
+          required: true
+          type: string
+        - description: "lastname"
+          in: formData
+          name: lastname
+          required: true
+          type: string
+        - description: "email"
+          in: formData
+          name: email
+          required: true
+          type: string               
+      responses:
+        200:
+          description: "JSON data from api"
+  /login/updateprofile:
+    post:
+      description: "Update profile"
+      produces:
+        - application/json
+      consumes:  
+         - application/x-www-form-urlencoded
+      parameters:
+        - description: "username"
+          in: formData
+          name: username
+          type: string
+          required: true         
+        - description: "password"
+          in: formData
+          name: password
+          required: true     
+          type: string    
+        - description: "firstname"
+          in: formData
+          name: firstname
+          required: true
+          type: string
+        - description: "lastname"
+          in: formData
+          name: lastname
+          required: true
+          type: string
+        - description: "email"
+          in: formData
+          name: email
+          required: true
+          type: string               
+      responses:
+        200:
+          description: "JSON data from api"   
+  /login/validate:
+    post:
+      description: "Validate user"
+      produces:
+        - application/json
+      consumes:  
+         - application/x-www-form-urlencoded
+      parameters:
+        - description: "username"
+          in: formData
+          name: username
+          type: string
+          required: true         
+        - description: "password"
+          in: formData
+          name: pwd
+          required: true     
+          type: string                  
+      responses:
+        200:
+          description: "JSON data from api"                    
+
+
+
