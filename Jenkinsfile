@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = sudo docker.build("digital_login-service")
+        app = docker.build("digital_login-service")
     }
 
     stage('Push image') {
