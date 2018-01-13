@@ -6,13 +6,7 @@ const YAML = require('yamljs')
 
 const app = express()
 
-app.use(bodyParser.urlencoded({
-  extended: true,
-  jsonLimit: process.env.BODY_PARSER_JSON_LIMIT || '5mb',
-  onerror: (err) => {
-    console.log(`Body-Parser: error parsing input -  ${err}`)
-  },
-}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const swaggerDoc = YAML.load('swagger.yaml')
 swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {

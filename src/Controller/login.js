@@ -1,5 +1,5 @@
 const model = require('../model/signup')
-const couchbase = require('common/couchbase')
+const data = require('../lib/data')
 const { isEmpty } = require('lodash')
 
 module.exports = {
@@ -9,13 +9,14 @@ module.exports = {
    * @param {any} res
    */
   Register(req, res) {
-    if (isEmpty(req.body)) { res.send('Failure: Invalid input') } else {
-      const data = model.data(req)
-      couchbase.Insert(`login_${req.body.username}`, data).then((result) => {
-        res.send(result)
-      }).catch((err) => {
-        res.send(`Failure: ${err}`)
-      })
+    if (isEmpty(req.body)) { res.json('Failure: Invalid input') } else {
+      const userData = model.data(req)
+      data.Save(`login_${req.body.username}`, userData)
+        .then((result) => {
+          res.json(result)
+        }).catch((err) => {
+          res.json(`Failure: ${err}`)
+        })
     }
   },
   /**
@@ -24,22 +25,23 @@ module.exports = {
    * @param {any} res
    */
   UpdateProfile(req, res) {
-    if (isEmpty(req.body)) { res.send('Failure: Invalid input') } else {
-      const data = model.data(req)
-      couchbase.Upsert(`login_${req.body.username}`, data).then((result) => {
-        res.send(result)
-      }).catch((err) => {
-        res.send(`Failure: ${err}`)
-      })
+    if (isEmpty(req.body)) { res.json('Failure: Invalid input') } else {
+      const userData = model.data(req)
+      data.Update(`login_${req.body.username}`, userData)
+        .then((result) => {
+          res.json(result)
+        }).catch((err) => {
+          res.json(`Failure: ${err}`)
+        })
     }
   },
   ValidateUser(req, res) {
-    if (isEmpty(req.body)) { res.send('Failure: Invalid input') } else {
+    if (isEmpty(req.body)) { res.json('Failure: Invalid input') } else {
       const query = model.loginQuery(req)
-      couchbase.ExecuteQuery(query).then((result) => {
-        res.send(result)
+      data.Select(query).then((result) => {
+        res.json(result)
       }).catch((err) => {
-        res.send(`Failure: ${err}`)
+        res.json(`Failure: ${err}`)
       })
     }
   },
