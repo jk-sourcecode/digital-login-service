@@ -4,9 +4,8 @@ node {
     stage('Clone repository') {
         checkout scm
     }
-    stage('Build Docker'){
-
-            sh './dockerBuild.sh'
-       }
+  stage('Build image') {
+      app = docker.build("digital_login-service")
+      }
     
 }
