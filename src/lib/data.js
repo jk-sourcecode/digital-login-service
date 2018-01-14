@@ -23,4 +23,11 @@ module.exports = {
         .catch(err => reject(err))
     })
   },
+  Remove(key) {
+    return new Promise((resolve, reject) => {
+      couchbase.RemoveDocument(key)
+        .then(result => resolve(result))
+        .catch(err => reject(err))
+    })
+  },
 }

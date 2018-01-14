@@ -4,7 +4,7 @@
   "description": "Login",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha \"src/**/*.spec.js\"",
     "start": "node index.js"
   },
   "repository": {
@@ -37,6 +37,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-mocha": "^4.11.0",
     "eslint-plugin-prettier": "^2.4.0",
+    "expect.js": "^0.3.1",
     "mocha": "^4.1.0",
     "prettier": "^1.9.2"
   }
