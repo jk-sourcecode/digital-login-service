@@ -6,7 +6,8 @@ node {
     }
   
   stage('Build image') {
-      app = docker.build("digital_login-service",'.')
+      
+      sh "docker build -t digital_login-service ."
       }
     
 }
