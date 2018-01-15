@@ -6,12 +6,12 @@ node {
     }
   
     stage('Build image') {
-        app = docker.build('kabilj/digital_login-service','.')
+        sh "docker build -t kabilj/digital_login-service ."
       }
     
     stage('Push Image') {
         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials') {
-            app.push('latest')
+            sh "docker push kabilj/digital_login-service"
         }
     }
 }
