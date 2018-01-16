@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY ["package.json", "/usr/src/app/"]
 COPY ["src", "/usr/src/app/src"]
 COPY ["index.js", "/usr/src/app/"]
-RUN   chmod -R a+rwx,o+t /tmp
+COPY ["swagger.yaml", "/usr/src/app/"]
 RUN npm install
 EXPOSE 5050
 CMD ["npm", "start"]
