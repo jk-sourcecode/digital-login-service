@@ -1,5 +1,5 @@
 node {
-    env.NODEJS_HOME = "${tool 'Node 6.9.4'}"
+    env.NODEJS_HOME = "${tool 'NodeJS6.9.4'}"
     env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
     stage('Pull Source Code') {
         checkout scm
