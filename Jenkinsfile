@@ -3,7 +3,7 @@ node {
         checkout scm
     }
     stage('Install Packages') {
-        sh 'export PATH=/usr/local/bin'
+        sh 'export PATH=/sbin:/usr/sbin:/usr/bin:/usr/local/bin'
         sh 'npm install'
     }
     /*stage('Test') {
