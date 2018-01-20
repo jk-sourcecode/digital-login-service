@@ -7,7 +7,7 @@ node {
        /* sh 'export PATH=/sbin:/usr/sbin:/usr/bin:/usr/local/bin' */
         def nodeHome = tool name: 'NodeJS6.9.4'
         sh "${nodeHome}/bin/node -v"
-        sh 'npm install'
+        sh "${nodeHome}/bin/npm install"
     }
     /*stage('Test') {
         sh 'npm test'
