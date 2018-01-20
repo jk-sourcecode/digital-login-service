@@ -1,9 +1,13 @@
 node {
+     environment {
+        PATH = '/sbin:/usr/sbin:/usr/bin:/usr/local/bin'
+    }
     stage('Pull Source Code') {
         checkout scm
     }
     stage('Install Packages') {
        /* sh 'export PATH=/sbin:/usr/sbin:/usr/bin:/usr/local/bin' */
+        sh 'printenv'
         sh 'npm install'
     }
     /*stage('Test') {
