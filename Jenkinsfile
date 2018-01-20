@@ -10,15 +10,15 @@ node {
         sh "${nodeHome}/bin/node -v" */
         sh 'node -v'
         sh 'npm -v'
-
+        sh 'npm install'
       /*  withNPM(npmrcConfig:'my-custom-npmrc') {
             echo "Performing npm build..."
             sh 'npm install'
         } */
     }
-    /*stage('Test') {
+    stage('Test') {
         sh 'npm test'
-    }*/
+    }
     stage('Build image') {
         sh 'docker build -t kabilj/digital_login-service .'
       }
