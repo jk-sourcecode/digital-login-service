@@ -5,8 +5,9 @@ node {
     }
     stage('Install Packages') {
        /* sh 'export PATH=/sbin:/usr/sbin:/usr/bin:/usr/local/bin' */
-        def nodeHome = tool name: 'node-v6.11.5'
-        sh "${nodeHome}/bin/node -v"
+        sh 'node -v'
+        /*def nodeHome = tool name: 'node-v6.11.5'
+        sh "${nodeHome}/bin/node -v"*/
         sh 'npm install'
     }
     /*stage('Test') {
