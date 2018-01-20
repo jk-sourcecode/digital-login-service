@@ -5,8 +5,6 @@ node {
     }
     stage('Install Packages') {
        /* sh 'export PATH=/sbin:/usr/sbin:/usr/bin:/usr/local/bin' */
-        sh 'echo $(whoami)'
-        sh 'node -v'
         def nodeHome = tool name: 'node-5.10.1', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
         sh "${nodeHome}/bin/node -v"
         sh 'npm install'
