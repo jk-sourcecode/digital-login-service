@@ -33,10 +33,10 @@ describe('Database interaction', () => {
       }))
   })
 
-  /*describe('Remove User', () => {
+  describe('Remove User', () => {
     it('Should submit valid document id to delete user', () =>
       dataLib.Remove(docmentKey).then((result) => {
         expect(result).to.include.keys('cas')
       }))
-  })*/
+  })
 })

@@ -2,16 +2,16 @@ node {
     env.NODEJS_HOME = "${tool 'NodeJS6.9.4'}"
     env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
 
-    stage('Pull Source Code') {
+    stage('Pull Source') {
         checkout scm
     }
-    stage('Install Packages') {
+    stage('Setup Environment') {
         sh 'npm install'
     }
-    stage('Test') {
+    stage('Run Test') {
         sh 'npm test'
     }
-    stage('Build image') {
+    stage('Build Image') {
         sh 'docker build -t kabilj/digital_login-service .'
     }
     stage('Push Image') {
