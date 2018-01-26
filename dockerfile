@@ -1,6 +1,6 @@
 FROM node:latest
 ARG NODE_ENV=development
-ENV COUCHBASE_URL=couchbase://localhost:8091
+ENV COUCHBASE_URL=couchbase://ec2-35-177-132-251.eu-west-2.compute.amazonaws.com:8091
 ENV BUCKET_NAME=wallet
 ENV BUCKET_PASSWORD=d1f81842a37ef4ae4c155a78fca1d25d
 RUN mkdir -p /usr/src/app
