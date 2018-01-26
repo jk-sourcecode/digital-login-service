@@ -19,7 +19,4 @@ node {
             sh 'docker push kabilj/digital_login-service'
         }
     }
-    stage('Cleanup') {
-        sh 'rm node_modules -rf'
-    }
 }
