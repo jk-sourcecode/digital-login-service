@@ -13,17 +13,21 @@ node {
     } */
     stage('Build Image') {
         /*sh 'docker build -t kabilj/digital_login-service .'*/
-        sh 'docker build -t kabilj/digital_login-service .'
+        sh 'docker build -t digital_login-service:latest .'
     }
     stage('Push Image') {
        /* docker.withRegistry('','docker-hub-credentials') {
             sh 'docker push kabilj/digital_login-service'
         }*/
         echo 'Publishing docker containers'
-     sh '\$(aws ecr get-login)'
+        docker.withRegistry('491933328047.dkr.ecr.eu-west-2.amazonaws.com','digital_aws_ecr-credentials') {
+            sh 'docker push digital_login-service:latest'
+        }
+        
+    /* sh '\$(aws ecr get-login)'
  
      sh 'docker tag digital_login-service:latest 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest'
 	 
-     sh 'docker push 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest'
+     sh 'docker push 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest'  */
     }
 }
