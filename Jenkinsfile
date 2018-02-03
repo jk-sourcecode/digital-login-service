@@ -20,7 +20,7 @@ node {
             sh 'docker push kabilj/digital_login-service'
         }*/
         echo 'Publishing docker containers'
-        docker.withRegistry('491933328047.dkr.ecr.eu-west-2.amazonaws.com','ee7f1f6c-e865-4c32-a899-7e41fe5cb2f1') {
+        docker.withRegistry('491933328047.dkr.ecr.eu-west-2.amazonaws.com','ecr:eu-west-2:ee7f1f6c-e865-4c32-a899-7e41fe5cb2f1') {
             sh 'docker push digital_login-service:latest'
         }
         
