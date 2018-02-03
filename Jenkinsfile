@@ -13,7 +13,7 @@ node {
     } */
     stage('Build Image') {
         /*sh 'docker build -t kabilj/digital_login-service .'*/
-        sh 'docker build -t digital_login-service:latest .'
+        sh 'docker build -t 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest .'
     }
     stage('Push Image') {
        /* docker.withRegistry('','docker-hub-credentials') {
@@ -21,7 +21,7 @@ node {
         }*/
         echo 'Publishing docker containers'
         docker.withRegistry('https://491933328047.dkr.ecr.eu-west-2.amazonaws.com','ecr:eu-west-2:ee7f1f6c-e865-4c32-a899-7e41fe5cb2f1') {
-            sh 'docker push digital_login-service:latest'
+            sh 'docker push 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest'
         }
         
     /* sh '\$(aws ecr get-login)'
