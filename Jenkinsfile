@@ -12,11 +12,18 @@ node {
         sh 'npm test'
     }
     stage('Build Image') {
+        /*sh 'docker build -t kabilj/digital_login-service .'*/
         sh 'docker build -t kabilj/digital_login-service .'
     }
     stage('Push Image') {
-        docker.withRegistry('','docker-hub-credentials') {
+       /* docker.withRegistry('','docker-hub-credentials') {
             sh 'docker push kabilj/digital_login-service'
-        }
+        }*/
+        echo 'Publishing docker containers'
+     sh '\$(aws ecr get-login)'
+ 
+     sh 'docker tag digital_login-service:latest 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest'
+	 
+     sh 'docker push 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest'
     }
 }
