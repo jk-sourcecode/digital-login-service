@@ -1,6 +1,7 @@
 node {
     env.NODEJS_HOME = "${tool 'NodeJS6.9.4'}"
     env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+    def PACKAGE_VERSION = sh(returnStdout: true, script: /sed -nE 's\/^\s*"version": "(.*?)",$\/\1\/p' package.json/).trim()
 
     stage('Pull Source') {
         echo 'Pulling source code from github'
@@ -19,7 +20,7 @@ node {
         /* Below commanded code is used to build the image based on docker hub repository */
         /*sh 'docker build -t kabilj/digital_login-service .'*/
         /* Build and tag the image for ecr */
-        sh 'docker build -t 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:latest .'
+        sh """docker build -t 491933328047.dkr.ecr.eu-west-2.amazonaws.com/digital_login-service:version-${PACKAGE_VERSION} ."""
     }
     stage('Push Image') {
         echo 'Publishing docker image'
