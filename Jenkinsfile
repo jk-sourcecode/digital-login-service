@@ -6,14 +6,14 @@ node {
         echo 'Pulling source code from github'
         checkout scm
     }
-    stage('Setup Environment') {
+   /* stage('Setup Environment') {
         echo 'Installing NPM packages to run test package'
         sh 'npm install'
     }
     stage('Run Test') {
         echo 'Excueting test case using mocha chai test framework'
         sh 'npm test'
-    }
+    }*/
     stage('Build Image') {
         echo 'Building docker image'
         /* Below commanded code is used to build the image based on docker hub repository */
