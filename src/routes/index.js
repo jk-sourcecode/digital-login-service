@@ -5,7 +5,8 @@ module.exports = function (app) {
   app.route('/login/updateprofile').post(loginController.UpdateProfile)
   app.route('/login/validate').post(loginController.ValidateUser)
   app.get('/login/test', (req, res) => {
-    console.log('testing server...')
+    console.log('Testing service...')
+    console.log('Testing login/test')
     res.json('testing')
   })
 }
